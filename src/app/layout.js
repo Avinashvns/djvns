@@ -1,5 +1,7 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
+import ResponsiveAppBar from './component/header'
+import Footer from './component/footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -11,7 +13,34 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+
+      <body >
+        <ResponsiveAppBar />
+        {children}
+        <Footer />
+      </body>
+
     </html>
   )
 }
+// const RootLayout = ({ children }) => {
+//   return (
+//     <html lang="en">
+//       <head>
+//         {/* Add font import */}
+//         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
+//         {/* Add metadata */}
+//         <title>{metadata.title}</title>
+//         <meta name="description" content={metadata.description} />
+//         {/* Add other meta tags or dependencies */}
+//       </head>
+//       <body>
+//         <ResponsiveAppBar />
+//         {children}
+//         <Footer />
+//       </body>
+//     </html>
+//   );
+// };
+
+// export default RootLayout;
