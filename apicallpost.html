@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Welcome</h1>
+
+    <button onClick="handler()">Click Me</button>
+
+    <script>
+        function handler() {
+            const data = { username: "example" };
+
+            console.log("run");
+            postJSON({ answer: 42 }).then((data) => {
+                console.log(data); // JSON data parsed by `data.json()` call
+            });
+        }
+        async function postJSON(data) {
+            try {
+                const response = await fetch("http://surevih.in/api/posthello", {
+                    method: "POST", // or 'PUT'
+
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                const result = await response.headers;
+                console.log("Success:", result);
+            } catch (error) {
+                console.error("Error:", error);
+            }
+
+        }
+
+
+    </script>
+</body>
+
+</html>
